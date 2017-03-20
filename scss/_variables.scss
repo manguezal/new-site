@@ -1,0 +1,34 @@
+//Colors
+
+$color-white:              #ffffff; 
+$color-black:              #000000;
+$color-java:               #1dd8c8;
+$color-spring-green:       #00e888;
+$color-green-haze:         #00a65c;
+$color-tuatara:            #22221f;
+$color-mine-shaft:         #373737;
+
+$size-screen-gt-xs:          600px;
+$size-tablet-portrait:       768px;
+$size-tablet-landscape:      1024px;
+$size-desktop-md:            1280px;
+
+$size-desktop-lg:            1440px;
+$size-desktop-xl:            1920px;
+
+//Breakpoint limits
+$screen-gt-xs:               "min-width: #{$size-screen-gt-xs}";
+$tablet-portrait:            "min-width: #{$size-tablet-portrait}";
+$tablet-landscape:           "min-width: #{$size-tablet-landscape}";
+$desktop-md:                 "min-width: #{$size-desktop-md}";
+$desktop-lg:                 "min-width: #{$size-desktop-lg}";
+$desktop-xl:                 "min-width: #{$size-desktop-xl}";
+
+
+//Font context (for em() calculation)
+$font-browser-context:       16;
+
+//Font names
+$font-nunito-light:           "NunitoSans-Light";
+$font-nunito-regular:         "NunitoSans-Regular";
+$font-nunito-bold:            "NunitoSans-Bold";

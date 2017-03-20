@@ -1,0 +1,70 @@
+@import "reset";
+@import "mixins";
+
+@include font-face($font-nunito-light, "/fonts/NunitoSans-Light");
+@include font-face($font-nunito-regular, "/fonts/NunitoSans-Regular");
+@include font-face($font-nunito-bold, "/fonts/NunitoSans-Bold");
+body{
+    font-family: $font-nunito-regular;
+    
+}
+
+a{
+    text-decoration: none;
+}
+
+.wrapper{
+    overflow: hidden;
+}
+
+
+.container{
+    width: 100%;
+    max-width: 768px;
+}
+
+.header{
+    position: fixed;
+    height: 96px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    
+    a{
+        color: $color-white;
+    }
+}
+
+
+.content{
+    width: 100%;	
+    min-height: 480px;
+    @include flex(column, center);
+    padding: 48px;
+
+    p{
+        text-align: justify;
+    }
+
+    .centered-header{
+        font-size: 20px;
+        padding-top: 20px;
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+}
+
+
+p{
+  font-size: 16px;
+  line-height: 1.625;
+  margin-bottom: 20px;
+}
+
+h2{
+  margin-left: 48px;
+  margin-bottom: 35px;
+  font: normal 25px/1.2 $font-nunito-bold;
+  text-transform: uppercase;
+}
