@@ -4,9 +4,13 @@
     background: #000;
     z-index: 10;
     top: 0;
-    height: 96px;
+    height: 72px;
     width: 100%;
     left: 0;
+
+    @include screen-gt-xs(){
+        height: 96px;
+    }
 
     &, a{
         color: $color-white;
@@ -16,9 +20,9 @@
         @include flex(column, flex-end, space-between);
         position: fixed;
         right: 0;
-        top: 96px;
+        top: 72px;
         width: 300px;
-        height: calc(100% - 96px);
+        height: calc(100% - 72px);
         background: $color-tuatara;
 
         @include screen-gt-xs(){
@@ -31,16 +35,18 @@
 
     .manguezal-logo-small{
         position: fixed;
-        left: 0;
-        top: 0;
+        left: 22px;
+        top: 20px;
         background: url('/img/manguezal-icon.svg') no-repeat center;
         background-size: 100%;
-        width: 52px;
-        height: 75px;
+        width: 32px;
+        height: 32px;
         text-indent: -80000px;
 
         @include screen-gt-xs(){
             position: static;
+            width: 52px;
+            height: 75px;
         }
         
     }
