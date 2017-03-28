@@ -4,11 +4,11 @@
     background: #000;
     z-index: 10;
     top: 0;
-    height: 72px;
+    height: 70px;
     width: 100%;
     left: 0;
 
-    @include screen-gt-xs(){
+    @include tablet-portrait(){
         height: 96px;
     }
 
@@ -20,16 +20,47 @@
         @include flex(column, flex-end, space-between);
         position: fixed;
         right: 0;
-        top: 72px;
+        top: 70px;
         width: 300px;
-        height: calc(100% - 72px);
+        height: calc(100% - 70px);
+        padding-bottom: 40px;
+        overflow-x: hidden;
+        overflow-y: auto;
         background: $color-tuatara;
 
-        @include screen-gt-xs(){
+        @include tablet-portrait(){
             @include flex(row, center, space-between);
+            overflow: visible;
             position: static;
             width: auto;        
+            padding-bottom: 0;
             background: none;
+            left: -20px;
+        }
+    }
+
+    .menu-toggler {
+        position: fixed;
+        top: 28px;
+        right: 29px;
+        letter-spacing: -1000px;
+        color: transparent;
+        
+        &:after, &:before{
+            content: "";
+            position: relative;
+            display: block;
+            width: 32px;
+            height: 2px;
+            background: $color-white;
+        }
+
+        &:after{
+            top: -3px;
+        }
+
+        @include tablet-portrait(){
+            display: none;
         }
     }
 
@@ -43,10 +74,11 @@
         height: 32px;
         text-indent: -80000px;
 
-        @include screen-gt-xs(){
+        @include tablet-portrait(){
             position: static;
             width: 52px;
             height: 75px;
+            margin-left: 12px;
         }
         
     }
@@ -54,16 +86,17 @@
     .menu-group{
         @include flex(column, flex-end, space-between);
 
-        @include screen-gt-xs(){
+        @include tablet-portrait(){
             display: block;
+            margin-left: -44px;
         }
+        
         a{
-
             margin-top: 40px;
             margin-right: 35px;
             text-transform: uppercase;
 
-            @include screen-gt-xs(){
+            @include tablet-portrait(){
                 margin-top: 0px;
                 margin-left: 25px;
                 margin-right: 0;
@@ -73,6 +106,21 @@
                 margin-left: 0;
             }
         }
+    }
+}
+.language-switcher-wrapper{
+    width: 50px;
+    height: 50px;
+    @include flex();
+    @include translateX(35px);
+    flex: 0;
+    margin: 0 0 -50px 0;
+    position: relative;
+
+    @include tablet-portrait(){
+        margin: 5px 0 0 0;
+        flex: 0;
+        @include translateX(-48px);
     }
 }
 
@@ -86,9 +134,10 @@
   color: $color-white;
   font-family: $font-nunito-bold;
   right: 70px;
-  top: -40px;
-
-  @include screen-gt-xs(){
+  top: -30px;
+  margin-bottom: 20px;
+  
+  @include tablet-portrait(){
       right: 0;
       top: 0;
   }
@@ -118,25 +167,30 @@
   }
 }
 
-
-
 .content-home{
-    height: calc(100vh - 80px);
+    height: calc(100vh - 70px);
     @include flex(row, center, center);
-    margin-top: 80px;
+    margin-top: 70px;
     background: $color-spring-green;
     background: -moz-linear-gradient(top, $color-spring-green 0%, $color-java 99%);
     background: -webkit-linear-gradient(top, $color-spring-green 0%,$color-java 99%);
     background: linear-gradient(to bottom, $color-spring-green 0%,$color-java 99%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-spring-green', endColorstr='#{$color-java};',GradientType=0 );
+
+    @include tablet-portrait(){
+        height: calc(100vh - 80px);
+        margin-top: 80px;
+    }
 }
+
+
 
 .manguezal-logo{
     background: url('/img/logo-manguezal-icon-only.svg') no-repeat center;
     width: 200px;
     height: 300px;
 
-    @include screen-gt-xs(){
+    @include tablet-portrait(){
         background: url('/img/logo-manguezal.svg') no-repeat center;
         background-size: 100%;
         width: 400px;
@@ -160,6 +214,7 @@
         margin-bottom: 20px;
         @include clear();
     }
+
     .item{
         max-width: 259px;
         float: left;
@@ -169,7 +224,7 @@
         text-align: center;
         width: 100%;
 
-        @include screen-gt-xs(){
+        @include tablet-portrait(){
             width: 33.3333%;
         }
 
