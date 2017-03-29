@@ -41,7 +41,9 @@ a{
     width: 100%;	
     min-height: 480px;
     @include flex(column, center);
-    padding: 48px;
+    @include tablet-portrait(){
+        padding: 48px;
+    }
 
     p{
         text-align: justify;
