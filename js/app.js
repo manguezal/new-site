@@ -1,12 +1,8 @@
 /*Hello World!*/
 import React from 'react';
-import Swiper from 'swiper';
-
-require('!style!css!swiper/dist/css/swiper.css');
+import ReactDOM from 'react-dom';
+import Home from './components/Home';
+import $ from 'jquery';
 require('../scss/main.scss');
 
-
-var swiper = new Swiper('.swiper-container', {
-    paginationClickable: true,
-    spaceBetween: 45
-});
+ReactDOM.render(<Home/>, document.getElementById('wrapper'));
