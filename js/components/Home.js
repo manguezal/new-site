@@ -8,11 +8,11 @@ export default class Home extends Component{
         return (
     <div className="mainWrapper">
         <Menu />
-        <div className="content content-home"  id="content-home">
+        <div className="content content-home"  id="home">
             <div className="manguezal-logo"></div>
         </div>
 
-        <div id="welcome" className=" content content-welcome"  id="content-welcome">
+        <div id="welcome" className=" content content-welcome"  id="welcome">
             <div className="container">
             <h2>About</h2>
             
@@ -59,7 +59,7 @@ export default class Home extends Component{
             </div>
         </div>
 
-        <div className="content content-startups"  id="content-startups">
+        <div className="content content-startups"  id="startups">
             <div className="container">
             <h2>Startups Cadastradas</h2>
             <div className="gallery gallery-startups-in">
@@ -330,7 +330,7 @@ export default class Home extends Component{
             </div>
         </div>
 
-        <div className="content content-newsletter" id="content-newsletter">
+        <div className="content content-newsletter" id="newsletter">
             <div className="container">
             <h2>Fique por dentro</h2>
             <p>

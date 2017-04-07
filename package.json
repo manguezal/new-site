@@ -40,6 +40,7 @@
     "webpack-dev-server": "^1.11.0"
   },
   "dependencies": {
+    "enquire.js": "^2.1.6",
     "jquery": "^3.2.1",
     "lodash": "~3.10.1",
     "react-kendo": "~0.13.11",

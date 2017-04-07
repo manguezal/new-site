@@ -2,11 +2,12 @@ import $ from 'jquery';
 
 export default class Navigation{
 
-    goTo(wrapper, event){
-        console.log('$', $("#" + wrapper), wrapper, event, arguments);
-        let $item = $("#" + wrapper);
+    static goTo(wrapper){
+        let $item = $(wrapper);
+        let headerSize = 96;
+
         if($item.length > 0)    
-            $("html, body").animate({scrollTop: $item.scrollTop()});
+            $("html, body").animate({scrollTop: $item.offset().top - headerSize});
     }
 
 }
