@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 module.exports = {
+    target: "node",
     entry: [
       'webpack/hot/only-dev-server',
       "./js/app.js"

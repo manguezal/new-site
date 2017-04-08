@@ -1,27 +1,31 @@
-var webpack = require('webpack');
+var webpackConfig = require('./webpack.config');
+webpackConfig.devtool = 'inline-source-map';
 
 module.exports = function (config) {
   config.set({
-    browsers: [ 'Chrome' ], //run in Chrome
-    singleRun: true, //just run once by default
-    frameworks: [ 'mocha' ], //use the mocha test framework
+    browsers: [ 'Chrome' ],
+    // karma only needs to know about the test bundle
     files: [
-      'tests.webpack.js' //just load this file
+      'tests.bundle.js'
     ],
+    frameworks: [ 'chai', 'mocha' ],
+    plugins: [
+      'karma-chrome-launcher',
+      'karma-chai',
+      'karma-mocha',
+      'karma-sourcemap-loader',
+      'karma-webpack',
+    ],
+    // run the bundle through the webpack and sourcemap plugins
     preprocessors: {
-      'tests.webpack.js': [ 'webpack', 'sourcemap' ] //preprocess with webpack and our sourcemap loader
+      'tests.bundle.js': [ 'webpack', 'sourcemap' ]
     },
-    reporters: [ 'dots' ], //report results in this format
-    webpack: { //kind of a copy of your webpack config
-      devtool: 'inline-source-map', //just do inline source maps instead of the default
-      module: {
-        loaders: [
-          { test: /\.js$/, loader: 'babel-loader' }
-        ]
-      }
-    },
-    webpackServer: {
-      noInfo: true //please don't spam the console when running in karma!
+    reporters: [ 'dots' ],
+    singleRun: true,
+    // webpack config object
+    webpack: webpackConfig,
+    webpackMiddleware: {
+      noInfo: true,
     }
   });
 };
