@@ -15,7 +15,6 @@ module.exports = function (config) {
       'karma-firefox-launcher',
       'karma-chai',
       'karma-mocha',
-      'karma-phantomjs-launcher',
       'karma-sourcemap-loader',
       'karma-webpack',
     ],
