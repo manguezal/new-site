@@ -4,7 +4,7 @@ webpackConfig.devtool = 'inline-source-map';
 
 module.exports = function (config) {
   config.set({
-    browsers: [ 'Chrome', 'PhantomJS', 'Firefox' ],
+    browsers: [ process.env.CONTINUOUS_INTEGRATION ? 'Firefox' : 'Chrome' ],
     // karma only needs to know about the test bundle
     files: [
       'tests.bundle.js'
@@ -12,6 +12,7 @@ module.exports = function (config) {
     frameworks: [ 'chai', 'mocha' ],
     plugins: [
       'karma-chrome-launcher',
+      'karma-firefox-launcher',
       'karma-chai',
       'karma-mocha',
       'karma-phantomjs-launcher',
