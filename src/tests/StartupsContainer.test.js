@@ -7,6 +7,8 @@ import StartupsContainer from '../components/StartupsContainer';
 describe('StartupsContainer',  () => {
   it('renders without problems', () =>{
     var startupsContainer = ReactTestUtils.renderIntoDocument(<StartupsContainer />);
+
+    console.log(startupsContainer);
     expect(startupsContainer).toExist();
   });
 });

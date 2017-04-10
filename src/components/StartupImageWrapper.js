@@ -5,7 +5,8 @@ export default class StartupImageWrapper extends Component{
     render(){
         return (
             <div className="item">
-                <a href="http://eventick.com.br/" target="_blank"><img src="/img/manguez_files/eventick.png" alt="Eventick" /></a>
+                <a href={this.props.data.link} target="_blank">
+                <img src={this.props.data.src} alt={this.props.data.alt_br} /></a>
             </div>
         )
     }

@@ -19,8 +19,8 @@
     nav{
         @include flex(column, flex-end, space-between);
         @include transition();
-        position: fixed;
         right: -300px;
+        position: fixed;
         top: 70px;
         width: 300px;
         height: calc(100% - 70px);
@@ -30,13 +30,19 @@
         background: $color-tuatara;
 
         @include tablet-portrait(){
+            @include transition(none);
             @include flex(row, center, space-between);
+            right: 0;
             overflow: visible;
             position: static;
             width: auto;        
             padding-bottom: 0;
             background: none;
         }
+    }
+
+    .is-open{
+        right: 0;
     }
 
     .menu-toggler {
@@ -225,12 +231,16 @@
         
         h2{
             margin-left: 0;
+            text-align: center;
+            @include tablet-portrait(){
+                text-align: left;
+            }
         }
     }
 
     .item{
         max-width: 259px;
-        float: left;
+        margin: 0 auto;
         padding: 12px;
         height: 106px;
         overflow: hidden;
@@ -238,6 +248,8 @@
         width: 100%;
 
         @include tablet-portrait(){
+            margin: 0;
+            float: left;
             width: 33.3333%;
         }
 

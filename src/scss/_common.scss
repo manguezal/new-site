@@ -41,6 +41,8 @@ a{
 .content{
     width: 100%;	
     min-height: 480px;
+    padding: 48px 0;
+    
     @include flex(column, center);
     @include tablet-portrait(){
         padding: 48px;
