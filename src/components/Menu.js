@@ -13,6 +13,7 @@ export default class Menu extends Component{
   handleClick(e){
     e.preventDefault();
     var section = (e.target.getAttribute('href'));
+    Navigation.goTo(section);
   }
 
   toggleMenu(e){
@@ -33,7 +34,7 @@ export default class Menu extends Component{
                 <div className="menu-group">
                     <a href="#welcome" onClick={this.handleClick}>Sobre</a>
                     <a href="#startups" onClick={this.handleClick}>Startups</a>
-                    <a href="events.html">Eventos</a>
+                    <a href="#eventos">Eventos</a>
                     <a href="https://medium.com/comunidade-empreendedora-manguezal" target="_blank">Blog</a>
                     <a href="#newsletter" onClick={this.handleClick}>Newsletter</a>
                 </div>
