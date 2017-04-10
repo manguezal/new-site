@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
-import Navigation from '../Navigation';
+import Navigation from './Navigation';
 
 export default class Menu extends Component{
 

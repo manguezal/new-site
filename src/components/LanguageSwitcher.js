@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-
 export default class LanguageSwitcher extends Component{
    
    constructor(props) {

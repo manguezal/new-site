@@ -3,7 +3,10 @@ import Menu from './Menu';
 import StartupImageWrapper from './StartupImageWrapper';
 import EventsWrapper from './EventsWrapper';
 
-export default class Home extends Component{
+import '../scss/main.scss';
+
+
+export class Home extends Component{
     render(){
         return (
     <div className="mainWrapper">
