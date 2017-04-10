@@ -4,9 +4,8 @@
   "description": "Manguez.al bundler",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/karma start --single-run",
-    "dev": "webpack-dev-server --history-api-fallback --content-base ./src --open --hot --env.dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start",
+    "dev": "webpack-dev-server --history-api-fallback --content-base ./src --open --hot --env.dev"
   },
   "author": "",
   "license": "ISC",
