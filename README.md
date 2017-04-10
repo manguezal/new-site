@@ -1,3 +1,5 @@
+[logo]: https://travis-ci.org/lhew/manguezal-test.svg?branch=master
+
 http://manguez.al
 ====================
 
