@@ -3,6 +3,7 @@ import Menu from './Menu';
 import StartupImageWrapper from './StartupImageWrapper';
 import EventsWrapper from './EventsWrapper';
 import $ from 'jquery';
+import T from 'i18n-react';
 
 import '../scss/main.scss';
 
@@ -10,19 +11,8 @@ import '../scss/main.scss';
 export class Home extends Component{
 
 
-    componentDidMount(){
-        var data = [];
-        $(".gallery").find("img").each(function(i,e){
-            data.push({
-                src: $(e).attr('src'), 
-                parent: $(e).closest('.gallery').attr('class'), 
-                alt_br: $(e).attr('alt'),
-                alt_en: "",
-                link: $(e).parent().attr('href')
-            });
-        });
-
-        console.log(JSON.stringify(data, null, 4));
+    componentWillMount(){
+        
     }
 
     render(){
