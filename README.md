@@ -1,4 +1,4 @@
-![alt text](https://travis-ci.org/lhew/manguezal-test.svg?branch=master "travis ci status")
+[![Build Status](https://travis-ci.org/lhew/manguezal-test.svg?branch=master)](https://travis-ci.org/lhew/manguezal-test)
 
 http://manguez.al
 ====================
