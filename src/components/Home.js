@@ -2,11 +2,18 @@ import React, {Component} from 'react';
 import Menu from './Menu';
 import StartupsContainer from './StartupsContainer';
 import EventsWrapper from './EventsWrapper';
+import $ from 'jquery';
+import T from 'i18n-react';
 
 import '../scss/main.scss';
 
 
 export class Home extends Component{
+
+    componentWillMount(){
+        
+    }
+
 
     render(){
         return (
