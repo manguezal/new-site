@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import StartupImageWrapper from './StartupImageWrapper';
 import $ from 'jquery';
-import T from 'i18n-react';
+
+const Translate = require('react-i18nify').Translate;
 
 
 export default class StartupsContainer extends Component{
@@ -39,8 +40,6 @@ export default class StartupsContainer extends Component{
     }
 
 
-
-
     render(){        
         let startupsIn = this.state.startups.startupsIn.map(startup => <StartupImageWrapper key={startup.id} data={startup}/>);
         let coworking  = this.state.startups.coworking.map(startup => <StartupImageWrapper key={startup.id} data={startup}/>);
@@ -51,17 +50,17 @@ export default class StartupsContainer extends Component{
                 <div className="container">
 
                     <div className="gallery gallery-startups-in">
-                        <h2>Startups Cadastradas</h2>
+                        <h2><Translate value="startups_title_startups_registered" dangerousHTML={true}/></h2>
                         {startupsIn}
                     </div>
 
                     <div className="gallery gallery-coworking-spaces">
-                        <h2>Coworking spaces</h2>
+                        <h2><Translate value="startups_title_coworking_spaces" dangerousHTML={true}/></h2>
                         {coworking}
                     </div>
 
                     <div className="gallery gallery-foss-groups">
-                        <h2>FOSS Groups</h2>
+                        <h2><Translate value="startups_title_foss_groups" dangerousHTML={true}/></h2>
                         {fossGroups}
                     </div>
                 </div>

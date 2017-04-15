@@ -5,7 +5,6 @@ import EventsWrapper from './EventsWrapper';
 import $ from 'jquery';
 import '../scss/main.scss';
 
-const I18n = require('react-i18nify').I18n;
 const Translate = require('react-i18nify').Translate;
 
 export class Home extends Component{
@@ -57,7 +56,6 @@ export class Home extends Component{
                     <div className="mc-field-group">
                         <input type="email" value="" name="EMAIL" className="required email" id="mce-EMAIL"/>
                         <button type="submit" name="subscribe" id="mc-embedded-subscribe" className="button" ><Translate value="newsletter_form_subscribe" dangerousHTML={true}/></button>
-                        { /*<input type="submit" value={I18n.t('newsletter_form_subscribe')} name="subscribe" id="mc-embedded-subscribe" className="button"/> */}
                         </div>
 
                     </div>

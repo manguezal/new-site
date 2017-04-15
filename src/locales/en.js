@@ -11,9 +11,9 @@ export let en = {
         "about_second_title": "❤ Proudly made in Recife ❤",
         "about_content_p2": "<p>Recife tem sido historicamente um berço para muito bons programadores,  designers, artistas e empresários. Nos últimos 20 anos, enviamos muitos  engenheiros para empresas como IBM e Microsoft e, mais recentemente, para  o Google e Facebook. Apesar de tudo isso famoso, ainda não fizemos o nosso  capítulo na história da Internet. Perdemos boas fases de internet e  simplesmente assistimos a empresas como aquelas acima para nascerem e  crescerem. Recife definitivamente precisa fazer mais internet. Excitante,  Recife está finalmente fazendo algumas. Não só há um monte de novos  empresários que vêm com educação de fundo diferente da tecnologia, mas também  novos caras tecnológicos estão muito mais preparados e empreendedorismo é  muitas vezes a sua primeira escolha. </p> <p> Se você tem uma Startup e seu produto ou serviço é majoritariamente codificado  em Recife, por favor preencha <a href=\"#\">este formulário</a> e vamos  orgulhosamente mostrar-nos para as pessoas em todos os lugares saberem do que  é feita a internet em Recife. As startups do Recife e seus empreendedores  precisam ser conhecidos!</p>",
     
-        "startups_registered": "Startups",
-        "coworking_spaces": "Coworking Spaces",
-        "foss_groups": "Foss Groups",
+        "startups_title_startups_registered": "Startups",
+        "startups_title_coworking_spaces": "Coworking Spaces",
+        "startups_title_foss_groups": "Foss Groups",
     
         "events_title":  "Events",
         "events_content_p1": "<p>Esta é a lista de eventos acontecendo em Recife. Os eventos do Manguezal são organizados pela comunidade. </p><p>Adicione seu evento ao calendário juntando-se ao nosso Slack e divulgue-o no canal #events.</p>",
