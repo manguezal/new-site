@@ -6,7 +6,7 @@ import LanguageSwitcher from '../components/LanguageSwitcher';
 
 describe('LanguageSwitcher',  () => {
   it('renders without problems', () =>{
-    var languageSwitcher = ReactTestUtils.renderIntoDocument(<LanguageSwitcher />);
+    let languageSwitcher = ReactTestUtils.renderIntoDocument(<LanguageSwitcher />);
     expect(languageSwitcher).toExist();
   });
 });
