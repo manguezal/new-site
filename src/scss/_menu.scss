@@ -1,2 +1,116 @@
-.close-item{
+.menu{
+    @include flex(row, center, center);
+    position: fixed;
+    background: $color-black;
+    z-index: 10;
+    top: 0;
+    height: 70px;
+    width: 100%;
+    left: 0;
+
+    @include tablet-portrait(){
+        height: 96px;
+    }
+
+    &, a{
+        color: $color-white;
+    }
+
+    nav{
+        @include flex(column, flex-end, space-between);
+        @include transition();
+        right: -300px;
+        position: fixed;
+        top: 70px;
+        width: 300px;
+        height: calc(100% - 70px);
+        padding-bottom: 40px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background: $color-tuatara;
+
+        @include tablet-portrait(){
+            @include transition(none);
+            @include flex(row, center, space-between);
+            right: 0;
+            overflow: visible;
+            position: static;
+            width: auto;        
+            padding-bottom: 0;
+            background: none;
+        }
+    }
+
+    .is-open{
+        right: 0;
+    }
+
+    .menu-toggler {
+        position: fixed;
+        top: 28px;
+        right: 29px;
+        letter-spacing: -1000px;
+        color: transparent;
+        
+        &:after, &:before{
+            content: "";
+            position: relative;
+            display: block;
+            width: 32px;
+            height: 2px;
+            background: $color-white;
+        }
+
+        &:after{
+            top: -3px;
+        }
+
+        @include tablet-portrait(){
+            display: none;
+        }
+    }
+
+    .manguezal-logo-small{
+        position: fixed;
+        left: 22px;
+        top: 20px;
+        background: url('/img/manguezal-icon.svg') no-repeat center;
+        background-size: 100%;
+        width: 32px;
+        height: 32px;
+        text-indent: -80000px;
+
+        @include tablet-portrait(){
+            position: static;
+            width: 52px;
+            height: 75px;
+            margin-left: 12px;
+        }
+        
+    }
+
+    .menu-group{
+        @include flex(column, flex-end, space-between);
+
+        @include tablet-portrait(){
+            display: block;
+            margin-left: -44px;
+        }
+        
+        a{
+            margin-top: 40px;
+            margin-right: 35px;
+            text-transform: uppercase;
+
+            @include tablet-portrait(){
+                margin-top: 0px;
+                margin-left: 25px;
+                margin-right: 0;
+            }
+
+            &:first-of-type{
+                margin-left: 0;
+            }
+        }
+    }
 }

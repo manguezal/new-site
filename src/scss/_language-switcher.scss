@@ -1,0 +1,68 @@
+.language-switcher-wrapper{
+    width: 50px;
+    height: 50px;
+    @include flex();
+    @include translateX(35px);
+    flex: 0;
+    margin: 0 0 -50px 0;
+    position: relative;
+
+    @include tablet-portrait(){
+        margin: 5px 0 0 0;
+        flex: 0;
+        @include translateX(-48px);
+    }
+}
+
+.language-switcher{
+  width: 14px;
+  height: 43px;
+  border: 2px solid $color-white;
+  border-radius: 40px;
+  position: relative;
+  cursor: pointer;
+  color: $color-white;
+  font-family: $font-nunito-bold;
+  right: 70px;
+  top: -30px;
+  margin-bottom: 20px;
+  
+  @include tablet-portrait(){
+      right: 0;
+      top: 0;
+  }
+
+  .toggler{
+    @include transition(all 0.15s);
+    position: absolute;
+    display: block;
+    left: 1px;
+    top: 1px;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    border: none;
+    background: $color-white;
+  }
+
+    .toggler-is-portuguese{
+        top: 1px;
+    }
+
+    .toggler-is-english{
+        top: 30px;
+    }
+
+  .lang{
+    position: absolute;
+    left: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 11px;
+  }
+
+  .lang-en{
+    bottom: 0;
+  }
+}
+

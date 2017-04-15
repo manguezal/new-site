@@ -1,0 +1,41 @@
+.content-startups{
+    
+    h2{
+        color: $color-green-haze;
+    }
+
+    .gallery{
+        width: calc(100% - 96px);
+        margin: 0 auto 20px;
+        @include clear();
+        
+        h2{
+            margin-left: 0;
+            text-align: center;
+            @include tablet-portrait(){
+                text-align: left;
+            }
+        }
+    }
+
+    .item{
+        max-width: 259px;
+        margin: 0 auto;
+        padding: 12px;
+        height: 106px;
+        overflow: hidden;
+        text-align: center;
+        width: 100%;
+
+        @include tablet-portrait(){
+            margin: 0;
+            float: left;
+            width: 33.3333%;
+        }
+
+        img{
+            width: auto;
+            max-width: 100%;
+        }
+    }
+}

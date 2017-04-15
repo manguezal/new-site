@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import StartupImageWrapper from './StartupImageWrapper';
 import $ from 'jquery';
+import T from 'i18n-react';
 
 
 export default class StartupsContainer extends Component{
@@ -14,7 +15,7 @@ export default class StartupsContainer extends Component{
     componentWillMount(){
         $.ajax('sources/startups.json')
             .then(this.filterStartups.bind(this))
-            .catch(this.onError);
+            .catch(this.onError.bind(this));
     }
 
 
@@ -34,15 +35,16 @@ export default class StartupsContainer extends Component{
         let fossGroups  = startups.filter(startup => startup.type == "foss-groups");
 
         this.setState(() => ({startups: {startupsIn, coworking, fossGroups}}));
+
     }
 
 
 
 
     render(){        
-        let startupsIn = this.state.startups.startupsIn.map(startup => <StartupImageWrapper data={startup}/>);
-        let coworking  = this.state.startups.coworking.map(startup => <StartupImageWrapper data={startup}/>);
-        let fossGroups = this.state.startups.fossGroups.map(startup => <StartupImageWrapper data={startup}/>);
+        let startupsIn = this.state.startups.startupsIn.map(startup => <StartupImageWrapper key={startup.id} data={startup}/>);
+        let coworking  = this.state.startups.coworking.map(startup => <StartupImageWrapper key={startup.id} data={startup}/>);
+        let fossGroups = this.state.startups.fossGroups.map(startup => <StartupImageWrapper key={startup.id} data={startup}/>);
 
         return (
             <div className="content content-startups"  id="startups">

@@ -1,0 +1,45 @@
+
+.sitefooter{
+    @include flex(row, center, center);
+    background: $color-tuatara;
+    min-height: 80px;
+    font-size: 14px;
+    
+    &, a{
+        color: $color-white;
+    }
+    
+    .container{
+        margin: 0 0 0 48px;
+
+        & > div{
+            @include flex(row, center, flex-start);
+            float: left;
+            width: 25%;
+            padding: 4px 28px 0;
+            border-right: 1px solid $color-mine-shaft;
+            min-height: 28px;
+        }
+
+        .manguezal-logo{
+            background: none;
+            width: 25%;
+            height: auto;
+            text-align: center;
+            padding-left: 0;
+
+
+            img{
+                margin-top: 3px;
+                width: 148px;
+            }
+        }
+
+        .cargo-logo{
+            @include flex(row, center, flex-start);
+            padding-left: 32px;
+            text-align: center;
+            border-right: none;
+        }
+    }
+}

@@ -3,6 +3,8 @@ import LanguageSwitcher from './LanguageSwitcher';
 import Navigation from './Navigation';
 import $ from 'jquery';
 
+const Translate = require('react-i18nify').Translate;
+
 export default class Menu extends Component{
 
   constructor(){
@@ -14,7 +16,8 @@ export default class Menu extends Component{
 
   handleClick(e){
     e.preventDefault();
-    var section = (e.target.getAttribute('href'));
+    console.log(e.target.parentNode, e.target.getAttribute('href'));
+    var section = e.target.getAttribute('href') || e.target.parentNode.getAttribute('href');
     Navigation.goTo(section);
     this.setState(prevState => ({currentPage: section, isOpen: false }));
   }
@@ -39,14 +42,14 @@ export default class Menu extends Component{
             <div className="container ">
                 <nav className={this.state.isOpen ? "is-open" : ""}> 
                 <a href="#home" className="manguezal-logo-small" onClick={this.handleClick.bind(this)}> Manguez.al</a>
-                <a href="#" className="menu-toggler" onClick={this.toggleMenu.bind(this)}>Menu</a>
+                <a href="#" className="menu-toggler" onClick={this.toggleMenu.bind(this)}>&nbsp;</a>
                 
                 <div className="menu-group">
-                    <a href="#welcome" onClick={this.handleClick.bind(this)}>Sobre</a>
-                    <a href="#startups" onClick={this.handleClick.bind(this)}>Startups</a>
-                    <a href="#eventos" onClick={this.handleClick.bind(this)}>Eventos</a>
-                    <a href="#newsletter" onClick={this.handleClick.bind(this)}>Newsletter</a>
-                    <a href="https://medium.com/comunidade-empreendedora-manguezal" target="_blank">Blog</a>
+                    <a href="#welcome" onClick={this.handleClick.bind(this)}><Translate value="nav_about"/></a>
+                    <a href="#startups" onClick={this.handleClick.bind(this)}><Translate value="nav_startups"/></a>
+                    <a href="#events" onClick={this.handleClick.bind(this)}><Translate value="nav_events"/></a>
+                    <a href="#newsletter" onClick={this.handleClick.bind(this)}><Translate value="nav_newsletter"/></a>
+                    <a href="https://medium.com/comunidade-empreendedora-manguezal" target="_blank"><Translate value="nav_blog"/></a>
                 </div>
 
                 <LanguageSwitcher />

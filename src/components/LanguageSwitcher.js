@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+const I18n = require('react-i18nify').I18n;
 
 export default class LanguageSwitcher extends Component{
    
@@ -11,8 +12,14 @@ export default class LanguageSwitcher extends Component{
   handleClick() {
     this.setState(prevState => ({
       isPortuguese: !prevState.isPortuguese
-    }));
+    }), () => this.setLocale());
+
+    
   };
+
+  setLocale(){
+    I18n.setLocale(this.state.isPortuguese ? 'pt' : 'en', true);
+  }
 
   toggleState(){
     let cssClass = "toggler ";
