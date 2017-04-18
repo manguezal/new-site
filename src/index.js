@@ -10,6 +10,7 @@ import { AppContainer } from 'react-hot-loader'
 import { Home } from './components/home'
 import {en} from './locales/en'
 import {pt} from './locales/pt'
+import {styles} from './scss/main.scss';
 
 const I18n = require('react-i18nify').I18n;
 

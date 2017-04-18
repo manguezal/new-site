@@ -1,8 +1,46 @@
-var webpack = require('webpack');
-var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var config = {
+const webpack = require('webpack');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const IS_PRODUCTION = process.argv.indexOf('-p') !== -1;
+
+
+
+const extractSass = new ExtractTextPlugin({
+    filename: "[name].[contenthash].css"
+});
+
+const sassConfig = function(){
+
+  if(!IS_PRODUCTION){
+    return [{
+            loader: "style-loader",
+            options: {root: '/dist'} // creates style nodes from JS strings
+        }, {
+            loader: "css-loader" // translates CSS into CommonJS
+        }, {
+            loader: "sass-loader" // compiles Sass to CSS
+        }];
+
+/*    extractSass.extract({
+              use: [{
+                  loader: "css-loader"
+              }, {
+                  loader: "sass-loader"
+              }],
+              // use style-loader in development
+              fallback: "style-loader"
+          }); */
+  }else{
+     return ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ["css-loader", "sass-loader"]
+        });
+  }
+}
+
+
+let config = {
   entry: {
     'vendor': './src/vendor',
     'app': [
@@ -28,19 +66,13 @@ var config = {
       { test: /\.(ttf|eot|svg)$/, loader: 'file-loader?name=dist/fonts/[name].[ext]' },
       {
         test: /\.scss$/,
-        use: [{
-            loader: "style-loader" // creates style nodes from JS strings
-        }, {
-            loader: "css-loader" // translates CSS into CommonJS
-        }, {
-            loader: "sass-loader" // compiles Sass to CSS
-        }]
+        use: sassConfig()
       }
     ]
   }
 };
 
-if (!(process.env.WEBPACK_ENV === 'production')) {
+if (!IS_PRODUCTION) {
   config.devtool = 'source-map';
   config.plugins = [
     new webpack.DefinePlugin({
@@ -59,7 +91,8 @@ if (!(process.env.WEBPACK_ENV === 'production')) {
     new webpack.DefinePlugin({
       'WEBPACK_ENV': '"production"'
     }),
-    new CopyWebpackPlugin([{ from: './src/index.html' }], {})
+    new CopyWebpackPlugin([{ from: './src/index.html' }], {}),
+    new ExtractTextPlugin("styles.css")
   ];
 }
 

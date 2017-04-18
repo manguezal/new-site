@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-const I18n = require('react-i18nify').I18n;
+const Translate = require('react-i18nify').Translate;
 
 export default class NewsletterForm extends Component{
    

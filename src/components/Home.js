@@ -4,7 +4,6 @@ import StartupsContainer from './StartupsContainer';
 import EventsWrapper from './EventsWrapper';
 import NewsletterForm from './NewsletterForm';
 import $ from 'jquery';
-import '../scss/main.scss';
 
 const Translate = require('react-i18nify').Translate;
 
