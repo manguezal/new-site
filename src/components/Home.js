@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Menu from './Menu';
 import StartupsContainer from './StartupsContainer';
 import EventsWrapper from './EventsWrapper';
+import NewsletterForm from './NewsletterForm';
 import $ from 'jquery';
 import '../scss/main.scss';
 
