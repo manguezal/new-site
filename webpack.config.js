@@ -49,8 +49,9 @@ let config = {
     ]
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: '[name].js'
+    path: path.resolve('dist'),
+    publicPath: '/',
+    filename: 'js/[name].js'
   },
   resolve: {
     extensions: ['.ts', '.js', '.json']
@@ -61,9 +62,16 @@ let config = {
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.html/, loader: 'html-loader' },
-      { test: /\.(gif|png|jpe?g)$/i, loader: 'file-loader?name=dist/images/[name].[ext]' },
-      { test: /\.woff2?$/, loader: 'url-loader?name=dist/fonts/[name].[ext]&limit=10000&mimetype=application/font-woff' },
-      { test: /\.(ttf|eot|svg)$/, loader: 'file-loader?name=dist/fonts/[name].[ext]' },
+      {
+          test: /\.(jpg|jpeg|gif|png)$/,
+          exclude: /node_modules/,
+          loader:'file?limit=1024&name=images/[name].[ext]'
+      },
+      {
+          test: /\.(woff|woff2|eot|ttf|svg)$/,
+          exclude: /node_modules/,
+          loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
+      },
       {
         test: /\.scss$/,
         use: sassConfig()
@@ -91,8 +99,12 @@ if (!IS_PRODUCTION) {
     new webpack.DefinePlugin({
       'WEBPACK_ENV': '"production"'
     }),
-    new CopyWebpackPlugin([{ from: './src/index.html' }], {}),
-    new ExtractTextPlugin("styles.css")
+    new CopyWebpackPlugin([
+      {from: './src/index.html' }, 
+      {from: './src/img/**/*', to: 'img/'}, 
+      {from: './src/fonts/**/*', to: 'fonts/'}
+    ]),
+    new ExtractTextPlugin("css/styles.css")
   ];
 }
 
