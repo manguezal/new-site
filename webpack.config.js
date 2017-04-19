@@ -101,8 +101,8 @@ if (!IS_PRODUCTION) {
     }),
     new CopyWebpackPlugin([
       {from: './src/index.html' }, 
-      {from: './src/img/**/*', to: 'img/'}, 
-      {from: './src/fonts/**/*', to: 'fonts/'}
+      {from: './src/img/', to: 'img/'}, 
+      {from: './src/fonts/', to: 'fonts/'}
     ]),
     new ExtractTextPlugin("css/styles.css")
   ];
