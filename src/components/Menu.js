@@ -11,44 +11,45 @@ export default class Menu extends Component{
       super();
       let self = this;
       this.state = {currentPage: '#home', isOpen: false};
-      this.bindSidebarCallback();
+      
+      $("body").on("click", (e)=>{
+
+        debugger;
+        let target = e.target.className;
+        let sidebarStatus = target.indexOf("nav-item") > -1 || target.indexOf("menu-toggler") || target.indexOf("language-switcher") > -1; // se apertar em nav-item ou menu-togler, pede pra abrir 
+        
+        self.setState(prevState => ({isOpen: sidebarStatus})); // se pedir pra abrir
+
+        console.log(target, sidebarStatus, this.state.isOpen);
+       //se o target for .menu-togler ou nav-wrapper
+       // - isOpened = true
+       //else
+       // isOpened = false
+
+    });
   }
 
-  handleClick(e){
+  hideMenuAndGo(e){
+    e.stopPropagation();
     e.preventDefault();
-    console.log(e.target.parentNode, e.target.getAttribute('href'));
     var section = e.target.getAttribute('href') || e.target.parentNode.getAttribute('href');
     Navigation.goTo(section);
-    this.setState(prevState => ({currentPage: section, isOpen: false }));
-  }
-
-  toggleMenu(e){
-      e.preventDefault();
-      this.setState(prevState => ({ isOpen: !prevState.isOpen }));
-  }
-
-  bindSidebarCallback(){
-      let self = this;
-
-      $(window).resize(function(){
-          if($(this).width() <= 768)
-            self.setState((previousState) => ({isOpen: false}));
-      });
+    this.setState(prevState => ({ isOpen: false }));
   }
 
   render(){
     return (
         <div className="menu">
-            <div className="container ">
-                <nav className={this.state.isOpen ? "is-open" : ""}> 
-                <a href="#home" className="manguezal-logo-small" onClick={this.handleClick.bind(this)}> Manguez.al</a>
-                <a href="#" className="menu-toggler" onClick={this.toggleMenu.bind(this)}>&nbsp;</a>
+            <div className="container">
+                <nav className={this.state.isOpen ? "nav-item is-open" : "nav-item"}> 
+                <a href="#home" className="manguezal-logo-small" onClick={this.hideMenuAndGo.bind(this)}> Manguez.al</a>
+                <a href="#menu" className="menu-toggler">&nbsp;</a>
                 
                 <div className="menu-group">
-                    <a href="#welcome" onClick={this.handleClick.bind(this)}><Translate value="nav_about"/></a>
-                    <a href="#startups" onClick={this.handleClick.bind(this)}><Translate value="nav_startups"/></a>
-                    <a href="#events" onClick={this.handleClick.bind(this)}><Translate value="nav_events"/></a>
-                    <a href="#newsletter" onClick={this.handleClick.bind(this)}><Translate value="nav_newsletter"/></a>
+                    <a href="#welcome" onClick={this.hideMenuAndGo.bind(this)}><Translate value="nav_about"/></a>
+                    <a href="#startups" onClick={this.hideMenuAndGo.bind(this)}><Translate value="nav_startups"/></a>
+                    <a href="#events" onClick={this.hideMenuAndGo.bind(this)}><Translate value="nav_events"/></a>
+                    <a href="#newsletter" onClick={this.hideMenuAndGo.bind(this)}><Translate value="nav_newsletter"/></a>
                     <a href="https://medium.com/comunidade-empreendedora-manguezal" target="_blank"><Translate value="nav_blog"/></a>
                 </div>
 

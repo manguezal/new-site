@@ -6,7 +6,6 @@ export default class LanguageSwitcher extends Component{
    constructor(props) {
     super(props);
     this.state = {isPortuguese: true};
-    this.handleClick = this.handleClick.bind(this);
   };
 
   handleClick() {
