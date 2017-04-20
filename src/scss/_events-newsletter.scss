@@ -7,11 +7,23 @@
     background: $color-black;
     color: $color-white;
 
+    .mc-field-group{
+        position: relative;
+    }
+
+    #mc_embed_signup div.mce_inline_error{
+        display: block;
+        position: absolute;
+        bottom: -60px;
+        background: hsla(153, 83%, 72%, 0.25);
+    }
+
     form{
         div{
             width: 100%;
             @include flex(row, center, center);
         }
+
         input, button{
             font: normal 16px $font-nunito-light;
             border: none; 
@@ -21,13 +33,17 @@
                 width: 100%;
                 margin-right: 24px;
             }
-
         }
+
         button{
             text-transform: uppercase;
             color: $color-white;
             background-color: $color-green-haze;
             width: 115px;
+        }
+
+        .response{
+            margin-top: 20px;
         }
     }
 }

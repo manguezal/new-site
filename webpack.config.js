@@ -4,8 +4,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const IS_PRODUCTION = process.argv.indexOf('-p') !== -1;
 
-
-
 const extractSass = new ExtractTextPlugin({
     filename: "[name].[contenthash].css"
 });
@@ -13,28 +11,16 @@ const extractSass = new ExtractTextPlugin({
 const sassConfig = function(){
 
   if(!IS_PRODUCTION){
-    return [{
-            loader: "style-loader",
-            options: {root: '/dist'} // creates style nodes from JS strings
-        }, {
-            loader: "css-loader" // translates CSS into CommonJS
-        }, {
-            loader: "sass-loader" // compiles Sass to CSS
-        }];
+    return [{loader: "style-loader"}, 
+            {loader: "css-loader"}, 
+            {loader: "resolve-url-loader"},
+            {loader: "sass-loader?sourceMap"}
+            ];
 
-/*    extractSass.extract({
-              use: [{
-                  loader: "css-loader"
-              }, {
-                  loader: "sass-loader"
-              }],
-              // use style-loader in development
-              fallback: "style-loader"
-          }); */
   }else{
      return ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: ["css-loader", "sass-loader"]
+          use: ["css-loader", "resolve-url-loader","sass-loader?sourceMap"]
         });
   }
 }
@@ -46,11 +32,13 @@ let config = {
     'app': [
       'react-hot-loader/patch',
       './src/index'
-    ]
+    ],
+    
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: ''
   },
   resolve: {
     extensions: ['.ts', '.js', '.json']
@@ -61,9 +49,18 @@ let config = {
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.html/, loader: 'html-loader' },
-      { test: /\.(gif|png|jpe?g)$/i, loader: 'file-loader?name=dist/images/[name].[ext]' },
-      { test: /\.woff2?$/, loader: 'url-loader?name=dist/fonts/[name].[ext]&limit=10000&mimetype=application/font-woff' },
-      { test: /\.(ttf|eot|svg)$/, loader: 'file-loader?name=dist/fonts/[name].[ext]' },
+      { test: /\.(gif|png|jpe?g|svg)$/i,  
+        exclude: /fonts/,
+        use: [{
+          loader: 'file-loader?name=../img/[name].[ext]&outputPath=/img/'}]
+      },
+      { test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
+          exclude: [/img/, /images/],
+          use: [{
+              loader: "file-loader?name=../fonts/[name].[ext]&outputPath=/fonts/"
+          }]
+          
+      },
       {
         test: /\.scss$/,
         use: sassConfig()
@@ -75,9 +72,7 @@ let config = {
 if (!IS_PRODUCTION) {
   config.devtool = 'source-map';
   config.plugins = [
-    new webpack.DefinePlugin({
-      'WEBPACK_ENV': '"dev"'
-    })
+    new webpack.DefinePlugin({'WEBPACK_ENV': '"dev"'})
   ]
 } else {
   config.plugins = [
@@ -88,11 +83,13 @@ if (!IS_PRODUCTION) {
       },
       comments: false
     }),
-    new webpack.DefinePlugin({
-      'WEBPACK_ENV': '"production"'
-    }),
-    new CopyWebpackPlugin([{ from: './src/index.html' }], {}),
-    new ExtractTextPlugin("styles.css")
+    new webpack.DefinePlugin({'WEBPACK_ENV': '"production"'}),
+    new CopyWebpackPlugin([
+        { from: './src/index.html' }, 
+        { from: './src/img/manguez_files/', to:'./img/manguez_files/'},
+        { from: './src/ga.js', to: './'},  
+      ], {}),
+    new ExtractTextPlugin("css/styles.css")
   ];
 }
 

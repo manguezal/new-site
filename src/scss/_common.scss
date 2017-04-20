@@ -1,9 +1,9 @@
 @import "reset";
 @import "mixins";
 
-@include font-face($font-nunito-light, "/fonts/NunitoSans-Light");
-@include font-face($font-nunito-regular, "/fonts/NunitoSans-Regular");
-@include font-face($font-nunito-bold, "/fonts/NunitoSans-Bold");
+@include font-face($font-nunito-light, "../fonts/NunitoSans-Light");
+@include font-face($font-nunito-regular, "../fonts/NunitoSans-Regular");
+@include font-face($font-nunito-bold, "../fonts/NunitoSans-Bold");
 
 body{
     font-family: $font-nunito-regular;

@@ -15,14 +15,15 @@
 }
 
 .manguezal-logo{
-    background: url('/img/logo-manguezal-icon-only.svg') no-repeat center;
+    background: url('../img/logo-manguezal-icon-only.svg') no-repeat center;
     width: 200px;
     height: 300px;
 
     @include tablet-portrait(){
-        background: url('/img/logo-manguezal.svg') no-repeat center;
+        background: url('../img/logo-manguezal.svg') no-repeat center;
         background-size: 100%;
         width: 400px;
         height: 150px;
     }
+
 }
