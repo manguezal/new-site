@@ -30,7 +30,7 @@ export default class LanguageSwitcher extends Component{
   render(){
     return (
           <div className="language-switcher-wrapper">
-            <span className="language-switcher" onClick={this.handleClick}>
+            <span className="language-switcher" onClick={this.handleClick.bind(this)}>
               <span className={this.toggleState()}></span>
               <span className="lang lang-pt">Por</span>
               <span className="lang lang-en">Eng</span>
