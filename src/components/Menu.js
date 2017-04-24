@@ -51,7 +51,7 @@ export default class Menu extends Component{
             <div className="container ">
                 <nav className={this.state.isOpen > 0 ? "nav-item is-open" : "nav-item"}> 
                 <a href="#home" className="manguezal-logo-small" onClick={this.handleClick.bind(this)}> Manguez.al</a>
-                <a href="#" className="menu-toggler" onClick={this.toggleMenu.bind(this)}>&nbsp;</a>
+                <a href="#" className={this.state.isOpen > 0 ? "menu-toggler menu-toggler__is-open" : "menu-toggler"} onClick={this.toggleMenu.bind(this)}>&nbsp;</a>
                 
                 <div className="menu-group">
                     <a href="#welcome" onClick={this.handleClick.bind(this)}><Translate value="nav_about"/></a>
