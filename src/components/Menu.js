@@ -14,10 +14,11 @@ export default class Menu extends Component{
     this.state = {currentPage: '#home', isOpen: 0};
     this.bindSidebarCallback();
 
-    $("body").on("click", (e) =>{
+    $("body").on("click", (event) => {
 
+      let countElementClicks = (counter, element) => counter + event.target.className.indexOf(element);
       let elements = ['nav-item', 'menu-toggler', 'language-switcher', "lang", "toggler"];
-      let isClicked =  elements.reduce((counter, element) => counter + e.target.className.indexOf(element), elements.length);
+      let isClicked =  elements.reduce(countElementClicks, elements.length);
 
       if(isClicked == 0)
         this.setState({isOpen: 0}); 
@@ -39,10 +40,13 @@ export default class Menu extends Component{
 
     let self = this;
 
-    $(window).resize(() => {
+    function setStateOnResizeWindow(){
       if($(this).width() <= 768)
         self.setState((previousState) => ({isOpen: 0}));
-    });
+    }
+    
+    $(window).resize(setStateOnResizeWindow);
+    setStateOnResizeWindow();
   }
 
   render(){
