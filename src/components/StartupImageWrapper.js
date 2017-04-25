@@ -6,7 +6,7 @@ export default class StartupImageWrapper extends Component{
         return (
             <div className="item">
                 <a href={this.props.data.link} target="_blank">
-                <img src={this.props.data.src} alt={this.props.data.alt_br} /></a>
+                <img src={this.props.data.src} alt={this.props.data.alt_br} style={{width:this.props.data.width + "px" || ""}} /></a>
             </div>
         )
     }
