@@ -464,6 +464,14 @@ export let startups = [
             "width": ""
         },
         {
+            "src": "img/manguez_files/minha_prova.png",
+            "type": "startups-in",
+            "alt_br": "Minha Prova",
+            "alt_en": "",
+            "link": "http://www.minhaprova.com.br/",
+            "width": ""
+        },
+        {
             "src": "img/manguez_files/impact-hub-recife.png",
             "type": "coworking-spaces",
             "alt_br": "",
